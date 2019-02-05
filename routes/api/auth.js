@@ -1,9 +1,8 @@
 var router = require('express').Router();
+var authServices = require('../../services/authServices');
 
-function loginUser(req,res,next){}
-function logoutUser(req,res,next){}
 
-router.get('/login', loginUser);
-router.get('/logout', logoutUser);
+router.get('/login', authServices.loginUser);
+router.get('/logout', authServices.logoutUser);
 
 module.exports = router;
