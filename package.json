@@ -4,6 +4,7 @@
   "description": "a simple authorization demo",
   "scripts": {
     "start": "node server.js",
+    "db:rollback":"knex migrate:rollback --knexfile ./db/config.js",
     "db:migrate": "knex migrate:latest --knexfile ./db/config.js"
   },
   "keywords": [],
