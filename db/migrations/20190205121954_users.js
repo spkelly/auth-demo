@@ -6,7 +6,6 @@ exports.up = function(knex) {
     table.string('account_type');
     table.string('email').unique().notNull();
     table.string('hash').notNull();
-    table.string('salt').notNull();
     table.timestamps();
   })
 };
