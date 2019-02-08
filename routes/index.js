@@ -3,6 +3,13 @@ const users = require('./api/users');
 const posts = require('./api/posts');
 
 router.get('/',(req,res)=>{
+  console.log(req.session);
+  if(req.session.views){
+    req.session.views ++
+  }
+  else{
+    req.session.views = 1
+  }
   res.render('login',{test:"templating is working"});
 })
 
@@ -13,7 +20,7 @@ router.get('/test',(req,res)=>{
 });
 
 router.get('/hello',(req,res)=>{
-  res.send('render');
+  res.render('index');
 })
 
 router.use('/users',users);

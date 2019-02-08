@@ -25,9 +25,18 @@ function signToken(req,res,next){
   next();
 }
 
+function checkAuthentication(req,res,next){
+  if(!req.session.isAuthenticated){
+    res.redirect('/');
+  }
+  else{
+    next();
+  }
+}
 
 
 
 module.exports = {
-  checkToken
+  checkToken, 
+  checkAuthentication
 }
