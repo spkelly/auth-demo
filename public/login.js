@@ -21,7 +21,7 @@ window.addEventListener("load",function(event){
         put: httpRequestMethod('PUT',body),
         post:httpRequestMethod('POST',body),
         del: httpRequestMethod('DELETE'),
-        get: httpRequestMethod('GET',)
+        get: httpRequestMethod('GET')
       }
     };
 
@@ -29,17 +29,18 @@ window.addEventListener("load",function(event){
       console.log(JSON.parse(this.responseText))
     }
     
-    const http = httpMaker();
-
-    http.get('/test', handleResponse)
-
   
 
     _signinButton.addEventListener('click', function(event){
-
+      event.preventDefault();
+      $.get('/test',(data)=>{
+        
+        window.location.href = '/hello'
+      })
     })
 
     _registerButton.addEventListener('click', function(event){
-      
+      event.preventDefault();
+      window.location.href = 'users/register'
     })
 })
