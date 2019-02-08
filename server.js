@@ -13,7 +13,7 @@ app.set('view engine', 'pug');
 app.set('x-powered-by', false);
 app.set('views', path.resolve(__dirname,"views"));
 
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:false}));
 app.use(express.static(path.resolve(__dirname,"public")));
 app.use(requestLogger);
 app.use(routes);

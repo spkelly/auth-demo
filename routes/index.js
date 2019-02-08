@@ -1,15 +1,24 @@
 const router = require('express').Router();
 const users = require('./api/users');
 const posts = require('./api/posts');
-const auth = require('./api/auth');
 
 router.get('/',(req,res)=>{
-  res.render('index',{test:"templating is working"});
+  res.render('login',{test:"templating is working"});
+})
+
+//test route used to test front end ajax
+router.get('/test',(req,res)=>{
+  // res.status(200).json({payload:'this text was sent from the server'});
+  res.redirect('/hello');
+});
+
+router.get('/hello',(req,res)=>{
+  res.send('render');
 })
 
 router.use('/users',users);
-router.use('./posts',posts);
-router.use('./auth',auth);
+router.use('/posts',posts);
+
 
 
 module.exports = router;
