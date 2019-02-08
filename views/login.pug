@@ -1,8 +1,7 @@
 doctype html
 html
-  head
-    include head.pug
-    script(src="./login.js")
+  include head.pug
+  
   body
     div(class="mx-auto" style="width:200px; margin-top:200px;")
       h2 Sample Authentication Demo
@@ -15,4 +14,4 @@ html
         br
         submit(class="btn btn-dark" id="signin__button" style="margin-top:10px; float:right; margin-left:10px;") Submit
         submit(class="btn btn-dark" id="register__button" style="margin-top:10px; float:right") Register
-    
+    script(src="./login.js")
