@@ -1,7 +1,8 @@
 const env = process.env.NODE_ENV || "development";
-const config = rquire('./config')[env];
+const config = require('./config')[env];
 const knex = require('knex')(config);
 
-modules.exports ={
-  db : knex
-}
+module.exports = knex;
+
+
+
