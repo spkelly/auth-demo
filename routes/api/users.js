@@ -4,27 +4,27 @@ var router = express.Router();
 var auth = require('../../middleware').auth;
 var queries = require('../../db/queries');
 
-router.get('/',auth.checkToken, userServices.getAllUsers);
+router.get('/', userServices.getAllUsers);
 router.post('/', userServices.createUser);
 
 router.post('/login',userServices.loginUser);
 router.get('/logout',(req,res,next)=>{
-  ('here')
+
   req.session.destroy();
   res.redirect('/');
 });
 
 router.get('/register',(req,res,next)=>{
   let hasError=req.query.err;
-  let errorMessage = hasError? 'Username or password is incorrect': ''
+  let errorMessage = hasError? 'A user with this email already exists': ''
   res.render('signup',{hasError,errorMessage});
 })
 
 router.get('/profile',auth.checkAuthentication, (req,res,next)=>{
-  ('I am in the profile callback, my session data is: ',req.session)
+
   queries.getUserById(req.session.user.userId)
   .then((user)=>{
-    ('logged in as: ', user);
+
     user = user[0]
     res.render('profile', {user});
   })
@@ -38,6 +38,7 @@ router.post('/:id',auth.checkToken, userServices.updateUser);
 router.delete('/:id',(req,res,next)=>{res.send('deleting user')});
 
 
+('blach');
 
 
 module.exports = router;

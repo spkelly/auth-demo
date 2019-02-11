@@ -35,13 +35,11 @@ const createUser = function(req,res,next){
       req.session.user = {
         userId:userId[0],
       }
-
+      console.log('here')
       res.redirect(301,'/users/profile');
     })
     .catch((err)=>{
-      err.registerError = true;
-      err.message = "This user already exists"
-      res.redirect('/users/signup?err=true')
+      res.redirect('/users/register?err=true')
     });
   })
   
