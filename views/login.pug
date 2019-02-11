@@ -5,8 +5,9 @@ html
   body
     div(class="mx-auto" style="width:200px; margin-top:200px;")
       h2 Sample Authentication Demo
-      if err 
-        p Email or password is incorrect
+      if hasError
+        .errMessage
+          p #{errorMessage}
       form(action="users/login" method="post")
         label(for="email__field") Email
         input(id="email__field" name="email" type="email" style="width: 100%")

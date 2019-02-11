@@ -34,7 +34,6 @@ app.use(session(sessionConfig));
 app.use(requestLogger);
 app.use(routes);
 app.use(errorLogging);
-app.use(loginError);
 app.use(errorHandler);
 app.listen(port);
 
@@ -45,16 +44,7 @@ function errorLogging(err, req,res,next){
   }
   next(err);
 };
-function loginError(err,req,res,next){
-  if(err.loginError){
-    req.session.err = err
-    res.redirect('/')
-  }
-  else if(err.registerError){
-    res.redirect
-  }
-  else{next(err)}
-}
+
 function errorHandler(err, req,res,next){
   if(!err.statusCode){
     err.statusCode = 500;

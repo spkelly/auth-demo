@@ -3,11 +3,13 @@ const users = require('./api/users');
 const posts = require('./api/posts');
 
 router.get('/',(req,res)=>{
+  let hasError=req.query.err;
+  let errorMessage = hasError? 'Username or password is incorrect': ''
   if(req.session.isAuthenticated && req.session.cookie){
     res.redirect('/users/profile')
   }
   else{
-    res.render('login',{err:req.session.err?req.session.err:''});
+    res.render('login',{hasError,errorMessage});
   }
 })
 

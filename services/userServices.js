@@ -12,8 +12,6 @@ const deleteUser = function(req,res,next){
 }
 
 const getUserById = function(req,res,next){
-  let user = getUser(req.params.id);
-  console.log(req.headers);
   res.send('geting user');
 };
 
@@ -44,20 +42,20 @@ const createUser = function(req,res,next){
     .catch((err)=>{
       err.registerError = true;
       err.message = "This user already exists"
-      next(err);
+      res.redirect('/users/signup?err=true')
     });
   })
   
 }
+
+
 
 function loginUser(req,res,next){
   console.log('checking log in');
   console.log('body: ',req.body);
   let body = req.body
   if(!body.email || !body.password){
-    let err = new Error('email or password is incorrect')
-    err.loginError = true;
-    next(err);
+    res.redirect('/?err=true')
   }
   else{
     authenticateUser({email:body.email,password:body.password})
@@ -69,12 +67,10 @@ function loginUser(req,res,next){
           isAdmin : validUser['account_type'] == 'admin'? true:false
         }
         req.session.isAuthenticated = true;
-        res.redirect('./profile');
+        res.redirect('/users/profile');
       }
       else{
-        let err = new Error('email or password is incorrect')
-        err.loginError = true;
-        next(err);
+        res.redirect('/?err=true')
       }
   })
   }
