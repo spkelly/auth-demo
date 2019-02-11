@@ -4,6 +4,7 @@ const now = knex.fn.now;
 function getUserById(id){
   return knex('users')
   .where('user_id',id)
+  .select('display_name','email')
   .catch((err)=>{
     console.log(err)
   })
@@ -29,6 +30,16 @@ function updateUser(id,changes){
   })
 }
 
+function getHash(email){
+  return knex('users')
+  .where('email',email)
+  .select([
+    'user_id',
+    'account_type',
+    'hash'
+  ])
+}
+
 function addUser(user){
   return knex('users')
   .insert({
@@ -39,7 +50,7 @@ function addUser(user){
     "created_at": knex.fn.now(),
     "updated_at": knex.fn.now()
   })
-  .returning('user_id')
+  .returning('user_id','account_type')
 }
 
 function deleteUser(id){
@@ -54,5 +65,6 @@ module.exports = {
   updateUser,
   deleteUser,
   getUserById,
-  getAllUsers
+  getAllUsers,
+  getHash
 }
