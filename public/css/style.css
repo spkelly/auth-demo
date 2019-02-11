@@ -1,0 +1,12 @@
+
+
+.err{
+  background-color: #ffb2b2;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.err__message{
+  color: #c41515;
+  padding: 4px 0;
+}
