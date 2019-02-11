@@ -35,6 +35,10 @@ app.use(requestLogger);
 app.use(routes);
 app.use(errorLogging);
 app.use(errorHandler);
+
+app.get('*', function(req, res){
+  res.sendStatus(404);
+});
 app.listen(port);
 
 function errorLogging(err, req,res,next){

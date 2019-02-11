@@ -33,8 +33,8 @@ router.get('/profile',auth.checkAuthentication, (req,res,next)=>{
   });
 })
 
-router.get('/:id',auth.checkToken, userServices.getUserById);
-router.post('/:id',auth.checkToken, userServices.updateUser);
+router.get('/:id', userServices.getUserById);
+router.post('/:id', userServices.updateUser);
 router.delete('/:id',(req,res,next)=>{res.send('deleting user')});
 
 

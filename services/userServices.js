@@ -12,7 +12,13 @@ const deleteUser = function(req,res,next){
 }
 
 const getUserById = function(req,res,next){
-  res.send('geting user');
+  if(isNaN(req.params.id)){
+    //user id isn't valid this gets sent to the 404 handler for now
+    next();
+  }
+  else{
+    res.send('geting user');
+  }
 };
 
 const updateUser = function(req,res,next){
