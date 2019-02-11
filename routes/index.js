@@ -3,14 +3,12 @@ const users = require('./api/users');
 const posts = require('./api/posts');
 
 router.get('/',(req,res)=>{
-  console.log(req.session);
-  if(req.session.views){
-    req.session.views ++
+  if(req.session.isAuthenticated && req.session.cookie){
+    res.redirect('/users/profile')
   }
   else{
-    req.session.views = 1
+    res.render('login',{err:req.session.err?req.session.err:''});
   }
-  res.render('login',{test:"templating is working"});
 })
 
 //test route used to test front end ajax

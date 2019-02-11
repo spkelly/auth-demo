@@ -24,20 +24,15 @@ window.addEventListener("load",function(event){
         get: httpRequestMethod('GET')
       }
     };
-
-    function handleResponse(){
-      console.log(JSON.parse(this.responseText))
-    }
-    
   
 
-    _signinButton.addEventListener('click', function(event){
-      event.preventDefault();
-      $.get('/test',(data)=>{
+    // _signinButton.addEventListener('click', function(event){
+    //   event.preventDefault();
+    //   $.get('/test',(data)=>{
         
-        window.location.href = '/hello'
-      })
-    })
+    //     window.location.href = '/hello'
+    //   })
+    // })
 
     _registerButton.addEventListener('click', function(event){
       event.preventDefault();
