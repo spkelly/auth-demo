@@ -20,7 +20,6 @@ const updateUser = function(req,res,next){
 };
 
 const createUser = function(req,res,next){
-  console.log(req.body)
   bcrypt.hash(req.body.password,10).then((hash)=>{
     let user = {
       displayName: req.body.name,
@@ -32,11 +31,11 @@ const createUser = function(req,res,next){
     .then((userId)=>{
       user = user[0];
       req.session.isAuthenticated = true;
-      console.log('user: ',user);
+
       req.session.user = {
         userId:userId[0],
       }
-      console.log('I am in the add user callback, my session data is: ',req.session)
+
       res.redirect(301,'/users/profile');
     })
     .catch((err)=>{
@@ -51,8 +50,6 @@ const createUser = function(req,res,next){
 
 
 function loginUser(req,res,next){
-  console.log('checking log in');
-  console.log('body: ',req.body);
   let body = req.body
   if(!body.email || !body.password){
     res.redirect('/?err=true')
@@ -60,7 +57,6 @@ function loginUser(req,res,next){
   else{
     authenticateUser({email:body.email,password:body.password})
     .then((validUser)=>{
-      console.log('here')
       if(validUser){
         req.session.user = {
           userId : validUser['user_id'],
@@ -84,7 +80,7 @@ function authenticateUser(user){
     return false
   })
   .then((info)=>{
-    console.log('in authentication', info)
+
     return bcrypt.compare(user.password,info[0].hash)
     .then((result)=>{
       if(result == true){

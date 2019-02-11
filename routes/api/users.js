@@ -9,20 +9,22 @@ router.post('/', userServices.createUser);
 
 router.post('/login',userServices.loginUser);
 router.get('/logout',(req,res,next)=>{
-  console.log('here')
+  ('here')
   req.session.destroy();
   res.redirect('/');
 });
 
 router.get('/register',(req,res,next)=>{
-  res.render('signup');
+  let hasError=req.query.err;
+  let errorMessage = hasError? 'Username or password is incorrect': ''
+  res.render('signup',{hasError,errorMessage});
 })
 
 router.get('/profile',auth.checkAuthentication, (req,res,next)=>{
-  console.log('I am in the profile callback, my session data is: ',req.session)
+  ('I am in the profile callback, my session data is: ',req.session)
   queries.getUserById(req.session.user.userId)
   .then((user)=>{
-    console.log('logged in as: ', user);
+    ('logged in as: ', user);
     user = user[0]
     res.render('profile', {user});
   })
