@@ -7,16 +7,18 @@ html
     
     div(class="mx-auto" style="width:200px; margin-top:200px")
       h2 Register New User
+      if err
+        p=err
       form(action="../users" method="post")
-        input(class="form-check-input" name="isAdmin" value="true" type="checkbox" id="admin-toggle")
+        input(class="form-check-input" name="isAdmin" value="true" type="checkbox" id="admin-toggle" required)
         label(class='form-check-label' for="admin-toggle") Admin
         br
         label(for="name__field") Display Name: 
-        input(id="name__field" name="name" type="text")
+        input(id="name__field" name="name" type="text" required)
         label(for="email__field") Email: 
-        input(id="email__field" name="email" type="email")
+        input(id="email__field" name="email" type="email" required)
         label(for="password") Password: 
-        input(name="password" type="password")
-        .admin-check(style="margin-left:20px;margin-top:10px")
+        input(name="password" type="password" required)
+        .admin-check(style="margin-left:20px;margin-top:10px" )
 
         input(type="submit" class="btn btn-dark" style="margin-top:10px; float:right;" value="Submit")

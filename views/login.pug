@@ -5,13 +5,15 @@ html
   body
     div(class="mx-auto" style="width:200px; margin-top:200px;")
       h2 Sample Authentication Demo
-      form(action="/login")
+      if err 
+        p Email or password is incorrect
+      form(action="users/login" method="post")
         label(for="email__field") Email
-        input(id="email__field" type="email" style="width: 100%")
+        input(id="email__field" name="email" type="email" style="width: 100%")
         br
         label(for="password") Password
-        input(name="password__field" type="password" style="width: 100%")
+        input( name="password" type="password" style="width: 100%")
         br
-        submit(class="btn btn-dark" id="signin__button" style="margin-top:10px; float:right; margin-left:10px;") Submit
-        submit(class="btn btn-dark" id="register__button" style="margin-top:10px; float:right") Register
+        input(class="btn btn-dark" type="submit" style="margin-top:10px; float:right; margin-left:10px;" value="Submit") 
+        button(class="btn btn-dark" id="register__button" style="margin-top:10px; float:right") Register
     script(src="./login.js")

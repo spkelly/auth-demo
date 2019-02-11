@@ -1,0 +1,13 @@
+doctype html
+html
+  head
+    include head.pug
+  body
+    .container(style="width:900px; margin-top:100px;")
+      h2 Welcom #{user.display_name}!
+
+      if user.isAdmin
+        p you are logged in as an Administrator
+      else
+        p you are logged in as a User
+      button(class='btn btn-dark' onclick="window.location='./logout'") Log Out
