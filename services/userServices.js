@@ -2,9 +2,19 @@ const db = require('../db/queries');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const getAllUsers = function(req,res,next){
+  console.log(req.session)
   //fetch all users from db
   //send out as json object to client
-  res.send('getting all users');
+  db.getAllUsers().then((data)=>{
+    console.log('user-data: ',data)
+    let filteredData = data.filter((user)=>{
+      if(user.user_id != req.session.user.userId){
+        return user
+      }
+    })
+    console.log('user-data: ',data)
+    res.json(filteredData);
+  })
 };
 
 const deleteUser = function(req,res,next){

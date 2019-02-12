@@ -4,7 +4,7 @@ var router = express.Router();
 var auth = require('../../middleware').auth;
 var queries = require('../../db/queries');
 
-router.get('/', userServices.getAllUsers);
+router.get('/', auth.checkAuthentication,userServices.getAllUsers);
 router.post('/', userServices.createUser);
 
 router.post('/login',userServices.loginUser);
