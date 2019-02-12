@@ -1,5 +1,13 @@
 
 
+
+  @media(max-width: 599px) {
+    html{
+      font-size:12px;
+    }
+
+   }
+
 .err{
   background-color: #ffb2b2;
   border-radius: 8px;
@@ -9,4 +17,56 @@
 .err__message{
   color: #c41515;
   padding: 4px 0;
+}
+
+.member{
+  margin-left:20px;
+  text-align: center;
+  padding: 1rem;
+  padding-bottom: 0;
+}
+
+.member__pic{
+  width:3rem;
+  height: 3rem;
+  transform:rotate(45deg);
+  margin: auto;
+  border:2px solid blue;
+  border-radius: 8px;
+}
+
+.member__name{
+  margin-top:1rem;
+  font-size: 1rem;
+}
+
+.members{
+  width:100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.profile__header{
+  display: flex;
+  align-items: center;
+  margin: 4rem 0;
+}
+
+.profile__heading{
+  font-size:3rem;
+  margin-left: 2rem;
+
+}
+
+.profile__dongle{
+  width: 6rem;
+  height:6rem;
+  border-radius: 10px;
+
+  border:2px solid blue;
+  transform: rotate(45deg);
+}
+
+.logout{
+  margin-left:auto;
 }

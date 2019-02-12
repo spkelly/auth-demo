@@ -11,8 +11,8 @@ html
         .err
           p.err__message=errorMessage
       form(action="../users" method="post")
-        input(class="form-check-input" name="isAdmin" value="true" type="checkbox" id="admin-toggle" required)
-        label(class='form-check-label' for="admin-toggle") Admin
+        input(class="form-check-input" name="isAdmin" value="true" type="checkbox" id="admin-toggle" style="margin-left:2px")
+        label(class='form-check-label' for="admin-toggle" style="margin-left:24px") Admin
         br
         label(for="name__field") Display Name: 
         input(id="name__field" name="name" type="text" required)
