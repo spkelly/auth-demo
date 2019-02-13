@@ -47,7 +47,7 @@ function addUser(user){
     "display_name": user.displayName,
     "email":user.email,
     "account_type":user.accountType,
-    "image_url": user.profileImage,
+    "image_url": user.imageUrl,
     "hash": user.hash,
     "created_at": knex.fn.now(),
     "updated_at": knex.fn.now()

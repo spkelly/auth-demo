@@ -43,7 +43,7 @@ const createUser = function(req,res,next){
       hash: hash,
       accountType: req.body.isAdmin == 'true'?'admin':'user',
     }
-    user.profileImage = req.body.profileImage? req.body.profileImage: 'https://loremflickr.com/300/300'
+    user.imageUrl = req.body.image_url? req.body.image_url: 'https://loremflickr.com/300/300'
     db.addUser(user)
     .then((userId)=>{
       user = user[0];
