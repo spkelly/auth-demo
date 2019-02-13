@@ -3,14 +3,16 @@ html
   head
     include head.pug
   body
-    .header
-      .container()
-        .profile__header
+    section.profile
+      .profile__header
+        .shadow__wrapper
           .profile__dongle
-          h2.profile__heading #{user.display_name}
-          button(class='btn btn-dark logout' onclick="window.location='./logout'") Log Out
-    section
-      .container
-        h3 Members
+            img(src=user.image_url).profile__image
+        h2.profile__heading #{user.display_name}
+        button(class='btn btn-dark logout' onclick="window.location='./logout'") Log Out
+      .main
+        .main__heading
+          h4 Other Members
         .members
+        
     script(src="/profile.js")

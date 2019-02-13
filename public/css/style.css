@@ -1,5 +1,17 @@
 
 
+@keyframes scale{
+  0%{
+    opacity: 0;
+    transform: scale(1.5);
+  }
+
+  100%{
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 
   @media(max-width: 599px) {
     html{
@@ -7,7 +19,11 @@
     }
 
    }
-
+body{
+  height: 100%;
+  color: #f5f5f5;
+  background-color:	#696969;
+}
 .err{
   background-color: #ffb2b2;
   border-radius: 8px;
@@ -20,19 +36,33 @@
 }
 
 .member{
-  margin-left:20px;
+  color: black;
+
   text-align: center;
   padding: 1rem;
   padding-bottom: 0;
+  min-width: 5.4rem;
+  margin-top: 1rem;
 }
 
+.profile__image{
+  height: 100%;
+  width: 100%;
+  -webkit-clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
 .member__pic{
   width:3rem;
   height: 3rem;
-  transform:rotate(45deg);
   margin: auto;
-  border:2px solid blue;
+  box-shadow: 0px 0px 10px rgba(0,0,0,.5);
+  background: rgba(0,0,0,.15);
   border-radius: 8px;
+}
+
+.logout{
+  height: fit-content;
+  margin-top: 1rem;
 }
 
 .member__name{
@@ -41,32 +71,74 @@
 }
 
 .members{
-  width:100%;
+  width:19.8rem;
+  margin: 0 auto;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
+}
+
+.profile{
+  margin: 10rem auto;
+  margin-bottom: 0;
+  max-width: 400px;
 }
 
 .profile__header{
   display: flex;
-  align-items: center;
-  margin: 4rem 0;
+
 }
 
 .profile__heading{
+  margin-left: -4rem;
+  padding-left: 4rem;
+  padding-bottom: 2rem;
+  height: 4.08rem;
+  color: white;
   font-size:3rem;
-  margin-left: 2rem;
+  margin-bottom: -20px;
 
+}
+.shadow__wrapper{
+  filter: drop-shadow(0px 0px 6px black);
 }
 
 .profile__dongle{
-  width: 6rem;
-  height:6rem;
+  overflow: hidden;
+  width: 8rem;
+  height:8rem;
   border-radius: 10px;
-
-  border:2px solid blue;
-  transform: rotate(45deg);
+  -webkit-clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  padding: 2px;
+  background-color:#f5f5f5;
+  animation: scale .5s ease-in-out;
+  animation-iteration-count: 1;
 }
 
 .logout{
   margin-left:auto;
+}
+
+.main::before{
+  content: '';
+  display:block;
+  height: 3.9rem;
+  margin-top: -3.93rem;
+  background-color: #f5f5f5;
+  border-top-right-radius: 1rem;
+}
+
+.main{
+  min-height: 24rem;
+  box-sizing:content-box;
+  background-color: #f5f5f5;
+  padding-bottom: 3rem;
+  box-shadow: 0px 0px 10px rgba(0,0,0,1);
+  
+}
+
+.main__heading{
+  color: black;
+  text-align: center;
 }

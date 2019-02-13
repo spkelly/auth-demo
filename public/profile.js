@@ -12,7 +12,7 @@ $(document).ready(function(){
       let memberDiv = document.createElement('div');
       let memberName = document.createElement('h4');
       let memberPic = document.createElement('div');
-      $(memberDiv).addClass('member card');
+      $(memberDiv).addClass('member');
       $(memberPic).addClass('member__pic');
 
       $(memberName).addClass('member__name').text(member.display_name)
