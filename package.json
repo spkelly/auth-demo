@@ -8,7 +8,7 @@
     "knex": "knex --knexfile ./db/config.js",
     "db:rollback": "knex migrate:rollback --knexfile ./db/config.js",
     "db:migrate": "knex migrate:latest --knexfile ./db/config.js",
-    "heroku-postbuild": "knex migrate:rollback' --knexfile ./db/config.js; knex migrate:latest --knexfile ./db/config.js;"
+    "heroku-postbuild": "knex migrate:rollback --knexfile ./db/config.js; knex migrate:latest --knexfile ./db/config.js;"
   },
   "keywords": [],
   "author": "",
