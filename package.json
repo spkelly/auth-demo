@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
-    "knex": "knex --knexfile ./db/config.js",
+    "knex": "knex",
     "db:rollback": "knex migrate:rollback --knexfile ./db/config.js",
     "db:migrate": "knex migrate:latest --knexfile ./db/config.js",
     "heroku-postbuild": "knex migrate:rollback --knexfile ./db/config.js; knex migrate:latest --knexfile ./db/config.js;"
