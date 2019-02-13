@@ -4,7 +4,7 @@ const now = knex.fn.now;
 function getUserById(id){
   return knex('users')
   .where('user_id',id)
-  .select('display_name','email')
+  .select('display_name','email','image_url')
   .catch((err)=>{
     console.log(err)
   })
@@ -46,6 +46,7 @@ function addUser(user){
     "display_name": user.displayName,
     "email":user.email,
     "account_type":user.accountType,
+    "image_url": user.profileImage,
     "hash": user.hash,
     "created_at": knex.fn.now(),
     "updated_at": knex.fn.now()
