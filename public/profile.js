@@ -11,10 +11,10 @@ $(document).ready(function(){
     data.forEach(member => {
       let memberDiv = document.createElement('div');
       let memberName = document.createElement('h4');
-      let memberPic = document.createElement('div');
+      let memberPic = document.createElement('img');
       $(memberDiv).addClass('member');
       $(memberPic).addClass('member__pic');
-
+      $(memberPic).attr("src",(member.image_url?member.image_url:'https://loremflickr.com/300/300 '))
       $(memberName).addClass('member__name').text(member.display_name)
       $(memberDiv).append(memberPic,memberName);
       $(_members).append(memberDiv);
