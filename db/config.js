@@ -8,5 +8,9 @@ module.exports = {
       password: process.env.DB_PASS,
       database: process.env.DB_NAME
     }
+  },
+  "production":{
+    "client": 'pg',
+    "connection": process.env.DATABASE_URL
   }
 }
