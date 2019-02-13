@@ -14,7 +14,8 @@ function getUserById(id){
 function getAllUsers(){
   return knex('users').select([
     'display_name',
-    'user_id'
+    'user_id',
+    'image_url'
   ])
   .catch((err)=>{
     console.log(err);
