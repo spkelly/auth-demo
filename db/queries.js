@@ -1,4 +1,4 @@
-const knex = require('./index');
+const knex = require('../knex');
 const now = knex.fn.now;
 
 function getUserById(id){
