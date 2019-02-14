@@ -1,6 +1,6 @@
 const db = require('../db/queries');
 const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const getAllUsers = function(req,res,next){
   console.log(req.session)
   //fetch all users from db
