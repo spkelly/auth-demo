@@ -15,9 +15,12 @@ const sessionConfig = {
   genid: (req) =>{
     return uuid()
   },
+  store: new (require('connect-pg-simple')(session))(),
   key: 'user_sid',
   secret: 'weakfornow',
   resave: false,
+  sameSite:true,
+  httpOnly: true,
   saveUninitialized: false,
   cookie:{
   }
