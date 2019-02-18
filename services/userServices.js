@@ -95,17 +95,22 @@ function authenticateUser(user){
     return false
   })
   .then((info)=>{
-
-    return bcrypt.compare(user.password,info[0].hash)
-    .then((result)=>{
-      if(result == true){
-        delete info[0].hash
-        return info[0]
-      }
-      else{
-        return result;
-      } 
-    })
+    if(info.length > 0){
+      return bcrypt.compare(user.password,info[0].hash)
+      .then((result)=>{
+        if(result == true){
+          delete info[0].hash
+          return info[0]
+        }
+        else{
+          return result;
+        } 
+      })
+    }
+    else{
+      return false;
+    }
+    
   })
 }
 
