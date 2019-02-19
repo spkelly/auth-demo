@@ -1,10 +1,8 @@
-
 doctype html
 html
   head
     include head.pug
   body
-    
     div(class="mx-auto" style="width:200px; margin-top:200px")
       h2 Register New User
       if hasError
@@ -23,5 +21,4 @@ html
         label(for="email__field") Profile Image URL: 
         input(id="email__field" name="image_url" required)
         .admin-check(style="margin-left:20px;margin-top:10px" )
-
         input(type="submit" class="btn btn-dark" style="margin-top:10px; float:right;" value="Submit")

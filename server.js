@@ -15,9 +15,9 @@ const sessionConfig = {
   genid: (req) =>{
     return uuid()
   },
-  store: new (require('connect-pg-simple')(session))(),
+  store: new (require('connect-pg-simple')(session)),
   key: 'user_sid',
-  secret: 'weakfornow',
+  secret: process.env.SESSION_SECRET,
   resave: false,
   sameSite:true,
   httpOnly: true,
@@ -59,3 +59,6 @@ function errorHandler(err, req,res,next){
 
   res.sendStatus(err.StatusCode).json(err);
 }
+
+
+module.exports = app
