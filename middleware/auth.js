@@ -27,7 +27,7 @@ function signToken(req,res,next){
 
 function checkAuthentication(req,res,next){
   if(!req.session.isAuthenticated){
-    res.redirect('/');
+    res.redirect(302,'/');
   }
   else{
     next();
