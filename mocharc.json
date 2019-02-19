@@ -1,0 +1,4 @@
+{
+  "reporter": "spec",
+  "slow": 2000
+}
